@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:yoga/data/get_data.dart';
 import 'package:yoga/model/Models.dart';
 
+import 'exercise_detail.dart';
+
 class ExerciseListScreen extends StatelessWidget {
   Category category;
 
@@ -13,49 +15,51 @@ class ExerciseListScreen extends StatelessWidget {
     return Yoga().getExercise();
   }
 
-  Widget getCell(Exercise ex) {
-    return Container(
-      margin: EdgeInsets.all(8),
-      child: ClipPath(
-        clipper: MovieTicketBothSidesClipper(),
-        child: Card(
-          color: Colors.white24,
-          child: Column(
-            children: [
-              Container(
-                child: Icon(
-                  Icons.image,
-                  size: 100,
-                ),
+  Widget getCell(BuildContext context, Exercise ex) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ExerciseDetail(exercise: ex)));
+      },
+      child: Container(
+        child: Container(
+          margin: EdgeInsets.all(8),
+          child: ClipPath(
+            clipper: MovieTicketBothSidesClipper(),
+            child: Card(
+              color: Colors.white24,
+              child: Column(
+                children: [
+                  Image.asset(
+                    ex.image,
+                    height: size.width * (.3),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: Text(ex.title),
+                  ),
+                ],
               ),
-              Container(
-                padding: EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text(ex.title), Text(ex.desc)],
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  List<Widget> getList(List<Exercise> data) {
+  List<Widget> getList(BuildContext context, List<Exercise> data) {
     List<Widget> list = [];
     for (Exercise ex in data) {
-      list.add(getCell(ex));
-      list.add(getCell(ex));
-      list.add(getCell(ex));
-      list.add(getCell(ex));
-      list.add(getCell(ex));
-      list.add(getCell(ex));
+      list.add(getCell(context, ex));
     }
     return list;
   }
 
-  Widget basicList() {
+  Widget basicList(BuildContext context) {
+    var itemWidth = size.width * (.5);
+    var itemHeight = size.width * (.6);
     return Container(
       width: size.width,
       child: FutureBuilder<List<Exercise>>(
@@ -65,13 +69,16 @@ class ExerciseListScreen extends StatelessWidget {
               return Center(child: CircularProgressIndicator());
             return GridView.count(
               crossAxisCount: 2,
-              children: getList(snapshot.data),
+              childAspectRatio: (itemWidth / itemHeight),
+              children: getList(context, snapshot.data),
             );
           }),
     );
   }
 
-  Widget specificList() {
+  Widget specificList(BuildContext context) {
+    var itemWidth = size.width * (.5);
+    var itemHeight = size.width * (.6);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -88,9 +95,12 @@ class ExerciseListScreen extends StatelessWidget {
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(category.title),
-                  background: Image.asset(
-                    category.image,
-                    fit: BoxFit.cover,
+                  background: Hero(
+                    tag: category.title,
+                    child: Image.asset(
+                      category.image,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -98,7 +108,8 @@ class ExerciseListScreen extends StatelessWidget {
           },
           body: GridView.count(
             crossAxisCount: 2,
-            children: getList(category.exercises),
+            childAspectRatio: (itemWidth / itemHeight),
+            children: getList(context, category.exercises),
           ),
         ),
       ),
@@ -115,9 +126,9 @@ class ExerciseListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     if (category == null) {
-      return basicList();
+      return basicList(context);
     }
-    return specificList();
+    return specificList(context);
   }
 }
 

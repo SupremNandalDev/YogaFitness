@@ -26,5 +26,5 @@ class Exercise {
   String image;
   String video;
 
-  Exercise(this.title, this.desc, this.time, this.image, this.video);
+  Exercise({this.title, this.desc, this.time, this.image, this.video});
 }

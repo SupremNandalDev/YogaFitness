@@ -31,11 +31,14 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.topRight,
-                      width: size.width * (.45),
-                      height: size.height * (.2),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(cat.image), fit: BoxFit.cover),
+                      child: Hero(
+                        tag: cat.title,
+                        child: Image.asset(
+                          cat.image,
+                          fit: BoxFit.cover,
+                          width: size.width * (.45),
+                          height: size.height * (.2),
+                        ),
                       ),
                     )
                   ],
