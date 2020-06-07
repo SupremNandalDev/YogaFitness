@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'exercise_list.dart';
-import 'exercise_plan.dart';
+import 'extra_support.dart';
 import 'home.dart';
 import 'more.dart';
 
@@ -11,11 +11,11 @@ class Root extends StatefulWidget {
 }
 
 class _RootState extends State<Root> {
-  var titles = ['Yoga Fitness', 'Exercise', 'Plans', 'More'];
+  var titles = ['Yoga Fitness', 'Exercise', 'Support', 'More'];
   final List<Widget> _children = [
     HomeScreen(),
     ExerciseListScreen(null),
-    ExercisePlanScreen(),
+    ExtraSupportScreen(),
     MoreScreen()
   ];
   int _currentIndex = 0;

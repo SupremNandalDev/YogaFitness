@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yoga/data/get_data.dart';
 import 'package:yoga/model/Models.dart';
+import 'package:yoga/ui/yoga_session.dart';
+import 'package:yoga/utils/clippers.dart';
 
 import 'exercise_detail.dart';
 
@@ -27,7 +29,7 @@ class ExerciseListScreen extends StatelessWidget {
         child: Container(
           margin: EdgeInsets.all(8),
           child: ClipPath(
-            clipper: MovieTicketBothSidesClipper(),
+            clipper: BottomPatternClipper(),
             child: Card(
               color: Colors.white24,
               child: Column(
@@ -115,7 +117,10 @@ class ExerciseListScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            //TODO start exercises...
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => YogaSession(category: category,)));
           },
           icon: Icon(Icons.play_arrow),
           label: Text('Start')),
@@ -129,61 +134,5 @@ class ExerciseListScreen extends StatelessWidget {
       return basicList(context);
     }
     return specificList(context);
-  }
-}
-
-class MovieTicketBothSidesClipper extends CustomClipper<Path> {
-  /*@override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0.0, size.height);
-    double x = 0;
-    double y = size.height;
-    double yControlPoint = size.height * .85;
-    double increment = size.width / 12;
-
-    while (x < size.width) {
-      path.quadraticBezierTo(
-          x + increment / 2, yControlPoint, x + increment, y);
-      x += increment;
-    }
-
-    path.lineTo(size.width, 0.0);
-
-    while (x > 0) {
-      path.quadraticBezierTo(
-          x - increment / 2, size.height * .15, x - increment, 0);
-      x -= increment;
-    }
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper old) {
-    return old != this;
-  }*/
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0.0, size.height);
-    double x = 0;
-    double y = size.height;
-    double yControlPoint = size.height * .88;
-    double increment = size.width / 15;
-
-    while (x < size.width) {
-      path.quadraticBezierTo(
-          x + increment / 2, yControlPoint, x + increment, y);
-      x += increment;
-    }
-    path.lineTo(size.width, 0.0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper old) {
-    return old != this;
   }
 }

@@ -16,7 +16,7 @@ class Category {
     return 'Estimated Time : ' + time.toString() + ' minutes';
   }
 
-  Category(this.title, this.desc, this.time, this.image, this.exercises);
+  Category({this.title, this.desc, this.time, this.image, this.exercises});
 }
 
 class Exercise {
@@ -27,4 +27,11 @@ class Exercise {
   String video;
 
   Exercise({this.title, this.desc, this.time, this.image, this.video});
+}
+
+class YogaTip {
+  String title;
+  String desc;
+
+  YogaTip({this.title, this.desc});
 }

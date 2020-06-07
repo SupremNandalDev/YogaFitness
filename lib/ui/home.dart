@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yoga/data/get_data.dart';
 import 'package:yoga/model/Models.dart';
+import 'package:yoga/ui/yoga_session.dart';
+import 'package:yoga/utils/clippers.dart';
 
 import 'exercise_list.dart';
 
@@ -46,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                 Stack(
                   children: [
                     ClipPath(
-                      clipper: ClipTopRight(size.width * (.08)),
+                      clipper: TopRightDiagonal(depth: size.width * (.08)),
                       child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0),
@@ -59,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     ClipPath(
-                      clipper: ClipTopRight(size.width * (.08)),
+                      clipper: TopRightDiagonal(depth: size.width * (.08)),
                       child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0),
@@ -143,7 +145,12 @@ class HomeScreen extends StatelessWidget {
                         textColor: Colors.white,
                         color: Colors.redAccent,
                         onPressed: () {
-//                          _validate();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => YogaSession(
+                                        category: cat,
+                                      )));
                         })
                   ],
                 )
@@ -180,23 +187,4 @@ class HomeScreen extends StatelessWidget {
           }),
     );
   }
-}
-
-class ClipTopRight extends CustomClipper<Path> {
-  var clip;
-
-  ClipTopRight(this.clip);
-
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(size.width - clip, 0.0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0.0, size.height);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }

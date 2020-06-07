@@ -2,48 +2,270 @@ import 'package:yoga/model/Models.dart';
 
 class Yoga {
   Future<List<Category>> getCategories() async {
-    List<Category> list = [];
-    list.add(getBeginnerCat());
-    list.add(getMorningCat());
-    list.add(getBalanceCat());
+    List<Category> list = [
+      getBeginnerCat(),
+      getMorningCat(),
+      getBalanceCat(),
+      getDynamicCat(),
+      getCoreCat(),
+      getSunSalutationCat(),
+      getPowerCat(),
+      getGentleCat(),
+      getTwistStretchCat(),
+      getBackCareCat(),
+    ];
     return list;
   }
 
   getBeginnerCat() {
-    List<Exercise> ex = [];
-    ex.add(getExAccomplishedPoseWithEagleArmsLeft());
-    ex.add(getExAccomplishedPoseWithEagleArmsRight());
-    ex.add(getExBigToesPoseVariation());
-    ex.add(getExBoat());
-    ex.add(getExBoundSideAngleLeft());
-    ex.add(getExBoundSideAngleRight());
-    ex.add(getExBridgeLeft());
-    ex.add(getExBridgeRight());
-    ex.add(getExCatCamel());
+    List<Exercise> ex = [
+      getExMountainPose(),
+      getExDownwardFacingDog(),
+      getExPlank(),
+      getExTreeLeft(),
+      getExTreeRight(),
+      getExWarriorI(),
+      getExWarriorIILeft(),
+      getExWarriorIIRight(),
+      getExSeatedSideBendLeft(),
+      getExSeatedSideBendRight(),
+      getExBridgeLeft(),
+      getExBridgeRight(),
+      getExChildsPose()
+    ];
     return Category(
-        'Beginner Yoga',
-        'Yoga for complete beginners. A 10 minutes home yoga workout with easy follow poses.',
-        10,
-        'assets/images/cat_beginner.jpg',
-        ex);
+        title: 'Beginner Yoga',
+        desc:
+            'Yoga for complete beginners. A 10 minutes home yoga workout with easy follow poses.',
+        time: 10,
+        image: 'assets/images/cat_beginner.jpg',
+        exercises: ex);
   }
 
   getMorningCat() {
+    List<Exercise> ex = [
+      getExEasyPose(),
+      getExNeckStretch(),
+      getExWarriorI(),
+      getExWarriorIILeft(),
+      getExWarriorIIRight(),
+      getExCatCamel(),
+      getExShoulderExpansion(),
+      getExDownwardFacingDog(),
+      getExForearmPlank(),
+      getExCobra(),
+      getExChildsPose()
+    ];
     return Category(
-        'Morning Yoga',
-        'A 7 minutes morning workout to start a wonderful day.',
-        7,
-        'assets/images/cat_morning.jpg',
-        null);
+        title: 'Morning Yoga',
+        desc: 'A 7 minutes morning workout to start a wonderful day.',
+        time: 7,
+        image: 'assets/images/cat_morning.jpg',
+        exercises: ex
+    );
   }
 
   getBalanceCat() {
+    List<Exercise> ex = [
+      getExNeckStretch(),
+      getExWindRelievingPoseVariationLeft(),
+      getExWindRelievingPoseVariationRight(),
+      getExWarriorIIILeft(),
+      getExWarriorIIIRight(),
+      getExTreeLeft(),
+      getExTreeRight(),
+      getExPrayerPose(),
+      getExBigToesPoseVariation(),
+      getExMountainPose(),
+      getExHappyBaby(),
+      getExEasyPose(),
+      getExHighPrayerVariation()
+    ];
     return Category(
-        'Balance Yoga',
-        'A 8 minutes workout calms your mind and helps you feel the peace. Let go of your worries and inhibitions',
-        8,
-        'assets/images/cat_balance.jpg',
-        null);
+        title: 'Balance Yoga',
+        desc: 'A 8 minutes workout calms your mind and helps you feel the peace. Let go of your worries and inhibitions',
+        time: 7,
+        image: 'assets/images/cat_balance.jpg',
+        exercises: ex
+    );
+  }
+
+  getDynamicCat() {
+    List<Exercise> ex = [
+      getExEasyPose(),
+      getExStandingForwardFold(),
+      getExYogaSquat(),
+      getExWindRelievingPoseVariationLeft(),
+      getExWindRelievingPoseVariationRight(),
+      getExPrayerPose(),
+      getExSideAngleLeft(),
+      getExSideAngleRight(),
+      getExTreeLeft(),
+      getExTreeRight()
+    ];
+    return Category(
+        title: 'Dynamic Yoga',
+        desc: 'This workout gives you the chance to feel the inner energy and sense of yourself',
+        time: 7,
+        image: 'assets/images/cat_dynamic.jpg',
+        exercises: ex
+    );
+  }
+
+  getCoreCat() {
+    List<Exercise> ex = [
+      getExShoulderExpansion(),
+      getExBoat(),
+      getExTwistedChairLeft(),
+      getExTwistedChairRight(),
+      getExAccomplishedPoseWithEagleArmsLeft(),
+      getExAccomplishedPoseWithEagleArmsRight(),
+      getExSeatedSpinalTwistLeft(),
+      getExSeatedSideBendRight(),
+      getExBoundSideAngleLeft(),
+      getExBoundSideAngleRight(),
+      getExCobra()
+    ];
+    return Category(
+        title: 'Core Yoga',
+        desc: 'This workout focuses on different twist moves and it helps releasing stress and tiredness',
+        time: 7,
+        image: 'assets/images/cat_core.jpg',
+        exercises: ex
+    );
+  }
+
+  getSunSalutationCat() {
+    List<Exercise> ex = [
+      getExHappyBaby(),
+      getExHighPrayerVariation(),
+      getExBigToesPoseVariation(),
+      getExDownwardFacingDog(),
+      getExLowLungesLeft(),
+      getExLowLungesRight(),
+      getExSingleLegDownwardDogLeft(),
+      getExSingleLegDownwardDogRight(),
+      getExStandingSideBend(),
+      getExPlank(),
+      getExShoulderExpansion(),
+      getExBoundSideAngleLeft(),
+      getExBoundSideAngleRight(),
+      getExEasyPose()
+    ];
+    return Category(
+        title: 'Sun Salutation',
+        desc: 'This yoga workout is designed to boost your inner energy and feel the body strength.',
+        time: 10,
+        image: 'assets/images/cat_sun.jpg',
+        exercises: ex
+    );
+  }
+
+  getPowerCat() {
+    List<Exercise> ex = [
+      getExBigToesPoseVariation(),
+      getExStandingSideBend(),
+      getExTreeLeft(),
+      getExTreeRight(),
+      getExStandingForwardFold(),
+      getExLowLungesLeft(),
+      getExLowLungesRight(),
+      getExCrescentLungeWithTwistLeft(),
+      getExCrescentLungeWithTwistRight(),
+      getExDownwardFacingDog(),
+      getExSingleLegDownwardDogLeft(),
+      getExSingleLegDownwardDogRight(),
+      getExSeatedSpinalTwistLeft(),
+      getExSeatedSpinalTwistRight(),
+      getExEasyPose()
+    ];
+    return Category(
+        title: 'Power Yoga',
+        desc: 'This yoga session focuses on channeling the power inside your body.',
+        time: 15,
+        image: 'assets/images/cat_power.jpg',
+        exercises: ex
+    );
+  }
+
+  getGentleCat() {
+    List<Exercise> ex = [
+      getExNeckStretch(),
+      getExShoulderExpansion(),
+      getExStandingForwardFold(),
+      getExDownwardFacingDog(),
+      getExStandingSideBend(),
+      getExSeatedSpinalTwistLeft(),
+      getExSeatedSpinalTwistRight(),
+      getExTreeLeft(),
+      getExTreeRight(),
+      getExTigerLeft(),
+      getExTigerRight(),
+      getExBoundSideAngleLeft(),
+      getExBoundSideAngleRight(),
+      getExSpinalRolling(),
+      getExCatCamel()
+    ];
+    return Category(
+        title: 'Gentle Yoga',
+        desc: 'This workout extends your entire body and relax as much as possible.',
+        time: 10,
+        image: 'assets/images/cat_gentle.jpg',
+        exercises: ex
+    );
+  }
+
+  getTwistStretchCat() {
+    List<Exercise> ex = [
+      getExPrayerPose(),
+      getExBigToesPoseVariation(),
+      getExMountainPose(),
+      getExStandingForwardFold(),
+      getExTigerLeft(),
+      getExTigerRight(),
+      getExShoulderExpansion(),
+      getExBoundSideAngleLeft(),
+      getExBoundSideAngleRight(),
+      getExCatCamel(),
+      getExCobra()
+    ];
+    return Category(
+        title: 'Twist Stretch',
+        desc: 'This Yoga session helps you extend all your body parts and release the stress',
+        time: 7,
+        image: 'assets/images/cat_twist.jpg',
+        exercises: ex
+    );
+  }
+
+  getBackCareCat() {
+    List<Exercise> ex = [
+      getExLocustPoseVariation(),
+      getExHappyBaby(),
+      getExHighPrayerVariation(),
+      getExSpinalRolling(),
+      getExBoundSideAngleLeft(),
+      getExBoundSideAngleRight(),
+      getExCatCamel(),
+      getExGateLeft(),
+      getExGateRight(),
+      getExWarriorIIILeft(),
+      getExWarriorIIIRight(),
+      getExModifiedSidePlankLeft(),
+      getExModifiedSidePlankRight(),
+      getExChildsPose(),
+      getExSeatedSpinalTwistLeft(),
+      getExSeatedSpinalTwistRight(),
+      getExAccomplishedPoseWithEagleArmsLeft(),
+      getExAccomplishedPoseWithEagleArmsRight()
+    ];
+    return Category(
+        title: 'Back Care',
+        desc: 'A yoga workout routine to help relieve back and neck tightness.',
+        time: 15,
+        image: 'assets/images/cat_back.jpg',
+        exercises: ex
+    );
   }
 
   Future<List<Exercise>> getExercise() async {
@@ -540,8 +762,8 @@ class Yoga {
     return Exercise(
         title: 'Tree (Left)',
         desc:
-            'Start with the Mountain Pose and then shift your weight on the right foot. Raise your left foot and place the sole on the right shank and try to balance yourself in this position by extending your arms. Keep your neck and spine straight and hold this position for a while. Repeat on the other side.',
-        time: 10,
+        'Start with the Mountain Pose and then shift your weight on the right foot. Raise your left foot and place the sole on the right shank and try to balance yourself in this position by extending your arms. Keep your neck and spine straight and hold this position for a while. Repeat on the other side.',
+        time: 30,
         image: 'assets/images/poses/treeleft.png',
         video: 'assets/images/poses/treeleft.mp4');
   }
@@ -550,8 +772,8 @@ class Yoga {
     return Exercise(
         title: 'Tree (Right)',
         desc:
-            'Start with the Mountain Pose and then shift your weight on the left foot. Raise your right foot and place the sole on the left shank and try to balance yourself in this position by extending your arms. Keep your neck and spine straight and hold this position for a while. Repeat on the other side.',
-        time: 10,
+        'Start with the Mountain Pose and then shift your weight on the left foot. Raise your right foot and place the sole on the left shank and try to balance yourself in this position by extending your arms. Keep your neck and spine straight and hold this position for a while. Repeat on the other side.',
+        time: 30,
         image: 'assets/images/poses/treeright.png',
         video: 'assets/images/poses/treeright.mp4');
   }
@@ -580,8 +802,8 @@ class Yoga {
     return Exercise(
         title: 'Warrior I',
         desc:
-            'Take a wide-legged stance with your feet parallel to each other. Turn the right foot out 90 degrees. Raise the left heel and, pivoting on the ball of the left foot, spin the heel out to the left before planting it on the floor. Your chest and left hip should now be facing the same direction as your right foot. Bring your hands to your outer hips and wrap the left hip forward as you steer the right hip back. Bend your right knee so that it stacks above the ankle. Extend your arms alongside your ears and lift your chest. Press into your left heel while keeping the right knee centered over the ankle. Repeat with left foot forward.',
-        time: 10,
+        'Take a wide-legged stance with your feet parallel to each other. Turn the right foot out 90 degrees. Raise the left heel and, pivoting on the ball of the left foot, spin the heel out to the left before planting it on the floor. Your chest and left hip should now be facing the same direction as your right foot. Bring your hands to your outer hips and wrap the left hip forward as you steer the right hip back. Bend your right knee so that it stacks above the ankle. Extend your arms alongside your ears and lift your chest. Press into your left heel while keeping the right knee centered over the ankle. Repeat with left foot forward.',
+        time: 30,
         image: 'assets/images/poses/warriori.png',
         video: 'assets/images/poses/warriori.mp4');
   }
@@ -654,5 +876,33 @@ class Yoga {
         time: 10,
         image: 'assets/images/poses/yogasquat.png',
         video: 'assets/images/poses/yogasquat.mp4');
+  }
+}
+
+class YogaTips {
+  Future<List<YogaTip>> getYogaTips() async {
+    List<YogaTip> tips = [
+      YogaTip(title: 'Keep a practical journal',
+          desc: 'Yoga Classes are full of little comments and insights that smooth over life\'s rough edges and change the way we see ourselves. But today\'s \'aha!\' experience is ofeten swept away in floot of tomorrow\'s activities. Write it down.\nA spiral-bound blank book is a great place for recording thoughts about your practice, even if some of your insights turn out to be less than cosmic. use your notebook to make observations about the classes you are taking.\nCompile lists of postures - the ones you know and the ones that you are learning. List new terms that you think you would like to remember. Write down questions that come up in meditation. You get the idea.'),
+      YogaTip(title: 'Become an artist',
+          desc: 'Drawing stick figures is a great way to summarize information and remember the fine points about a posture.\'Mr. Stick\'(or \'Mr. Peanut\' if you are a bit more talented) takes only moments to sketch.\nHighlight your drawing with arrows and important cues. Small figures can be used to create short sequences (vunyasas) and even longer practice routines. Of course, if you are a computer whiz you might consider scanning digital photos of postures into your computer and manipulating the images on screen. But then you\'ll miss the fun of creating the image yourself.'),
+      YogaTip(title: 'Make space in your home',
+          desc: 'By practicing in the same place at home you create a groove in your mind - memory of past day\'s experiences makes it easier to begin today. Store props nearby so that getting started doesn\'t require a lot of running around. An inspiring image or statue, an Oriental carpet, or a specially selected cushion can mark this place as special.'),
+      YogaTip(title: 'Define your practice',
+          desc: 'The practice routine you create depeds a good deal on you. Define the time you have available for practice, the technique you would like to foucus on, and the balance among meditation, breathing, and Asana practices.\nThen consider the details. Are you clear about the order of your practice and the methods you are using? Are there aspects of an Asana that need attention or that intrigue you? If a posture or any other practice seems too difficult, could you break it down, or preapre for it with less challenging technique?\nWhat are the steps in the relaxation or meditation methods you have learned? If you have questions, make sure to ask your teacher for help.'),
+      YogaTip(title: 'Invest in a sticky mat',
+          desc: 'This may seem like a minor matter, but the security that comes from firm footing is hart to overrate. If you have never tried a mat, borrow a friend\'s so that you can feel the difference it makes in any of the spread-legged postures and in the downward-facing dog pose. Once you\'ve tried it, you\'ll probably want your own.'),
+      YogaTip(title: 'Balance the postures with relaxation/meditation',
+          desc: 'These days most yoga classes heavily emphasize Asana practice. Some teachers may not include relaxation or meditation in the class routine at all. But don\'t neglect them. you need to relax; it will help you feel better; and once you have begin to relax or meditate regularly, the experience will transform you.\nMany students are attracted to yoga rimarily in order to meditate; thers are focused on physical health and are not aware of the importance of meditatnce of meditation.\nWorking with the body or mind alone is usually not enough to create the inner strength and equilibrium we hope for. A balanced combination of Asana practice and mental centering will engender a sense of well-being.'),
+      YogaTip(title: 'Build a small library of books and videos',
+          desc: 'Yoga videos are invaluable. They offer experience with different styles of yoga as well as different levels of practice. And audio recordings is a great way to internalize the relaxation and meditation practice of your choice.\n\nIn addition, a library of a dozen or so yoga-related books will provide a lifelong source of information. My choices would include two to three manual-style books offering practice suggestions and an overview of Yoga.'),
+      YogaTip(title: 'Learn to sound out Sanskrit words(If you like it)',
+          desc: 'Sanskrit is an elegand language and it container technical terms as well as historical names that have been associated with yoga for millennia. It\'s an orderly language too, and once you have learned the basics of pronunciation your days of mumbling the soundes will be over.'),
+      YogaTip(title: 'Take breathing breaks',
+          desc: 'Breathing is a powerful tool for managing stress. And while a few moments of breath awareness can definitaly short-circuit a fit of anger or a moment of anxiety, you might consider extending your breathing breaks and using them on a more regular basis-refreshing yourself for a few minutes or longer once or twice every day.'),
+      YogaTip(title: 'Let the practices do their work',
+          desc: 'In the midst of a posture or relaxation exercise it\'s easy to feel you should be doing something. And certainly it\'s important to make the effort to master a practice. But trying too hard can get in the way just as much as not giving enough effort.\n        So a god question to ask in the middle of any pracice is \'Am I letting the posture do it\'s work?\' Try it the next time you practice the relaxation posture, Shavasana. Let the posture do it\'s work.'),
+    ];
+    return tips;
   }
 }
